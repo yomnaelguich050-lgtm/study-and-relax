@@ -330,17 +330,19 @@
         </div>
 
         <div onclick="openStoreModal()" class="p-8 vintage-card rounded-3xl space-y-4 cursor-pointer hover:border-softgold/60">
-          <div class="w-12 h-12 rounded-2xl bg-sepia-100 flex items-center justify-center text-sepia-800 text-2xl">
-            🕯️
+          <div class="w-12 h-12 rounded-2xl bg-sage-100 flex items-center justify-center text-sage-800 text-2xl">
+              🛍️
           </div>
-          <h3 class="font-cinzel text-xl font-bold text-sepia-900">Serene Wellness Shop</h3>
-          <p class="text-sm text-sepia-800 leading-relaxed font-lora">
-            Treat yourself to herbal teas, vintage linen journals, aromatherapy candles, and lo-fi records delivered in TND.
+          
+          <h3 class="font-cinzel text-xl font-bold text-sepia-900" data-i18n="shop_title">Serene Wellness Shop</h3>
+          
+          <p class="text-sm text-sepia-800 leading-relaxed font-lora" data-i18n="shop_desc">
+              Treat yourself to herbal teas, vintage linen journals, aromatherapy candles, and lo-fi records delivered in TND.
           </p>
-          <span class="inline-flex items-center text-xs font-sans font-bold text-sepia-800">
-            Visit Wellness Shop →
+          
+          <span class="inline-flex items-center text-xs font-sans font-bold text-sage-800" data-i18n="shop_link">
+              Visit Wellness Shop →
           </span>
-        </div>
       </div>
 
     </section>
@@ -676,11 +678,18 @@
       <div class="space-y-6 overflow-y-auto pr-1">
         <div class="flex items-center justify-between border-b border-sepia-700/15 pb-4">
           <div class="flex items-center gap-2">
-            <span class="text-xl">🛍️</span>
-            <h3 class="font-cinzel text-xl font-bold text-sepia-900">Serene Wellness Shop</h3>
+              <span class="text-xl">🛍️</span>
+              <h3 class="font-cinzel text-xl font-bold text-sepia-900">Serene Wellness Shop</h3>
           </div>
+          
+          <!-- Sélecteur de langue -->
+          <select id="language-select" onchange="changeLanguage(this.value)" class="bg-[#fdfbf7] border border-sepia-700/30 rounded px-2 py-1 text-xs text-sepia-900 cursor-pointer">
+              <option value="fr">Français</option>
+              <option value="en">English</option>
+          </select>
+      
           <button onclick="toggleCartModal()" class="text-sepia-700 hover:text-sepia-900 font-bold">✕</button>
-        </div>
+      </div>
 
         <!-- Shop Items Available -->
         <div class="space-y-4">
@@ -721,7 +730,13 @@
             </div>
             <button onclick="addToCart('Rainy Lo-Fi Vinyl Record', 35)" class="bg-sage-600 hover:bg-sage-800 text-white font-semibold px-3 py-1.5 rounded-lg transition-all">+ Add</button>
           </div>
-        </div>
+        
+          <!-- Bouton de commande WhatsApp -->
+          <div class="mt-4 pt-4 border-t border-sepia-700/15">
+              <button onclick="checkoutWhatsApp()" class="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 px-4 rounded-xl transition-colors text-sm shadow-sm">
+                 <span>💬 Commander via WhatsApp</span>
+              </button>
+          </div>
 
         <!-- Selected Cart List -->
         <div class="pt-4 border-t border-sepia-700/15 space-y-3">
@@ -1111,6 +1126,48 @@
       closeSubscriptionModal();
       alert('🎉 Welcome to your 30-Day Free Trial! Enjoy complete botanical tranquility.');
     }
+    function checkoutWhatsApp() {
+    if (cartItems.length === 0) {
+        alert("Votre panier est vide !");
+        return;
+    }
+    
+    // Crée un texte récapitulatif des produits du panier
+    let message = "Bonjour, je souhaite valider ma commande :%0A";
+    let total = 0;
+    
+    cartItems.forEach(item => {
+        message += `- ${item.name} (${item.price} TND)%0A`;
+        total += item.price;
+    });
+    
+    message += `%0ATotal : ${total} TND`;
+    
+    // Remplacez 216XXXXXXXX par votre vrai numéro WhatsApp
+    let phoneNumber = "21629882775"; 
+    
+    // Ouvre WhatsApp avec le message pré-rempli
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+}const translations = {
+    fr: {
+        welcome_title: "Trouvez la paix dans l'étude",
+        welcome_desc: "Plongez dans un univers serein et vintage conçu pour apaiser la pression académique."
+    },
+    en: {
+        welcome_title: "Find Peace in Study",
+        welcome_desc: "Step into a serene, vintage realm designed to alleviate academic pressure."
+    }
+};
+
+function changeLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+}
   </script>
 </body>
 </html>
