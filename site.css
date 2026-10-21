@@ -1,0 +1,32 @@
+/* Styles partagés par les pages compte/admin (repris de index.html). */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f4efe6; }
+::-webkit-scrollbar-thumb { background: #c5d3c1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #697d65; }
+
+body { background: radial-gradient(circle, #fdfbf7 0%, #f4efe6 100%); background-attachment: fixed; }
+
+.vintage-card {
+  background: rgba(253, 251, 247, 0.92);
+  border: 1px solid rgba(104, 83, 56, 0.2);
+  box-shadow: 0 10px 30px rgba(45, 34, 28, 0.08);
+}
+.vintage-border { border: 2px solid #685338; outline: 1px dashed #685338; outline-offset: -6px; }
+
+.field {
+  width: 100%; padding: 0.75rem; border-radius: 0.75rem;
+  border: 1px solid rgba(104, 83, 56, 0.25); background: #fdfbf7; font-size: 0.875rem;
+}
+.field:focus { outline: none; border-color: #b87368; box-shadow: 0 0 0 2px rgba(184, 115, 104, 0.25); }
+.btn-primary {
+  background: #b87368; color: #fff; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 9999px;
+  box-shadow: 0 6px 16px rgba(184, 115, 104, 0.25); transition: background 0.2s;
+}
+.btn-primary:hover:not(:disabled) { background: #6b3d36; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-secondary {
+  background: #f4efe6; color: #2d221c; font-weight: 600; padding: 0.6rem 1.25rem; border-radius: 9999px;
+  border: 1px solid rgba(104, 83, 56, 0.3);
+}
+.btn-secondary:hover:not(:disabled) { background: #f5efdf; }
+.btn-secondary:disabled { opacity: 0.6; cursor: not-allowed; }

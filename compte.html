@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My account — Serene Mind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="font-lora text-sepia-900 min-h-screen" data-page="compte">
+  <header id="siteHeader"></header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10 space-y-8">
+    <div id="pageMessage" class="hidden"></div>
+
+    <section class="vintage-card rounded-3xl p-6 space-y-2 font-sans text-sm" aria-labelledby="idTitle">
+      <h1 id="idTitle" class="font-cinzel text-2xl font-bold">My account</h1>
+      <p><span class="font-bold">Name:</span> <span id="accName">—</span></p>
+      <p><span class="font-bold">E-mail:</span> <span id="accEmail">—</span></p>
+      <div class="pt-2"><a href="index.html" class="btn-secondary inline-block">Back to the shop</a></div>
+    </section>
+
+    <section class="space-y-4" aria-labelledby="ordersTitle">
+      <h2 id="ordersTitle" class="font-cinzel text-xl font-bold">My orders</h2>
+      <p id="ordersNote" class="hidden text-xs font-sans text-sepia-700"></p>
+      <div id="ordersStatus" class="text-sm font-sans text-sepia-700">Loading…</div>
+      <div id="ordersList" class="space-y-3"></div>
+    </section>
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="site-ui.js"></script>
+  <script defer src="auth-pages.js"></script>
+</body>
+</html>

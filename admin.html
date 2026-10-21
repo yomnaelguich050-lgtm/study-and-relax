@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Serene Mind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="font-lora text-sepia-900 min-h-screen" data-page="admin">
+  <header id="siteHeader"></header>
+
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-10">
+
+    <!-- Gate: loading / not signed in / not admin -->
+    <div id="gate" class="vintage-card rounded-3xl p-8 text-center font-sans text-sm space-y-3">
+      <p id="gateText">Checking your access…</p>
+      <a id="gateLink" href="index.html" class="hidden btn-primary inline-block">Back to the shop</a>
+    </div>
+
+    <div id="adminContent" class="hidden space-y-10">
+
+      <!-- ORDERS -->
+      <section class="space-y-4" aria-labelledby="ordersTitle">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <h1 id="ordersTitle" class="font-cinzel text-2xl font-bold">Order management</h1>
+          <div class="flex flex-wrap items-end gap-3 font-sans text-sm">
+            <div>
+              <label for="statusFilter" class="block text-xs font-bold mb-1">Status</label>
+              <select id="statusFilter" class="field !w-auto">
+                <option value="">All statuses</option>
+                <option value="new">New</option>
+                <option value="preparing">In preparation</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+            <button id="refreshOrders" type="button" class="btn-secondary">Refresh</button>
+          </div>
+        </div>
+
+        <div id="ordersMessage" class="hidden"></div>
+        <div id="ordersStatus" class="text-sm font-sans text-sepia-700"></div>
+        <div id="ordersList" class="space-y-3"></div>
+        <button id="loadMoreOrders" type="button" class="hidden btn-secondary">Load more</button>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="space-y-4" aria-labelledby="productsTitle">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="productsTitle" class="font-cinzel text-2xl font-bold">Products</h2>
+          <button id="newProduct" type="button" class="btn-secondary font-sans text-sm">New product</button>
+        </div>
+
+        <div id="productMessage" class="hidden"></div>
+
+        <form id="productForm" class="vintage-card rounded-3xl p-6 space-y-4 font-sans text-sm" novalidate>
+          <h3 id="formTitle" class="font-cinzel text-lg font-bold">Add a product</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="pId" class="block font-bold mb-1">Identifier</label>
+              <input id="pId" class="field" type="text" required maxlength="60" pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="e.g. herbal-tea">
+              <p class="text-xs text-sepia-700 mt-1">Lowercase letters, digits and hyphens. Cannot be changed later.</p>
+            </div>
+            <div>
+              <label for="pName" class="block font-bold mb-1">Name</label>
+              <input id="pName" class="field" type="text" required maxlength="120">
+            </div>
+            <div>
+              <label for="pCategory" class="block font-bold mb-1">Category</label>
+              <select id="pCategory" class="field" required>
+                <option value="tea">Tea</option>
+                <option value="stationery">Stationery</option>
+                <option value="candles">Candles</option>
+                <option value="music">Music</option>
+              </select>
+            </div>
+            <div>
+              <label for="pPrice" class="block font-bold mb-1">Price (TND)</label>
+              <input id="pPrice" class="field" type="number" required min="0.01" max="1000000" step="0.01" inputmode="decimal">
+            </div>
+          </div>
+          <div>
+            <label for="pImage" class="block font-bold mb-1">Image <span class="font-normal text-sepia-700">(optional)</span></label>
+            <input id="pImage" class="field" type="text" maxlength="500" placeholder="images/tea.jpg or https://…">
+            <p class="text-xs text-sepia-700 mt-1">An existing file of the site or a public HTTPS URL. No upload.</p>
+          </div>
+          <div>
+            <label for="pDescription" class="block font-bold mb-1">Description</label>
+            <textarea id="pDescription" class="field" rows="3" maxlength="1000"></textarea>
+          </div>
+          <div>
+            <label for="pFeatures" class="block font-bold mb-1">Features <span class="font-normal text-sepia-700">(one per line)</span></label>
+            <textarea id="pFeatures" class="field" rows="3"></textarea>
+          </div>
+          <label class="flex items-center gap-2 font-bold">
+            <input id="pAvailable" type="checkbox" checked class="w-4 h-4">
+            Visible in the shop
+          </label>
+          <div class="flex flex-wrap gap-3">
+            <button id="saveProduct" type="submit" class="btn-primary">Save product</button>
+            <button id="cancelEdit" type="button" class="btn-secondary">Cancel</button>
+          </div>
+        </form>
+
+        <div id="productsStatus" class="text-sm font-sans text-sepia-700"></div>
+        <div id="productsList" class="space-y-3"></div>
+      </section>
+    </div>
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="site-ui.js"></script>
+  <script defer src="admin.js"></script>
+</body>
+</html>

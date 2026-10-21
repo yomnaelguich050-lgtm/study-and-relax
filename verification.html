@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check your e-mail — Serene Mind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="font-lora text-sepia-900 min-h-screen" data-page="verification">
+  <header id="siteHeader"></header>
+
+  <main class="max-w-md mx-auto px-4 py-10">
+    <div class="vintage-card vintage-border rounded-3xl p-8 space-y-6 font-sans text-sm">
+      <div class="text-center space-y-2">
+        <div class="text-3xl" aria-hidden="true">✉️</div>
+        <h1 class="font-cinzel text-2xl font-bold">Confirm your e-mail</h1>
+      </div>
+
+      <p class="text-sepia-800">
+        We asked our authentication service to send a confirmation link to
+        <strong id="emailShown">your address</strong>.
+        Delivery can take a few minutes and we cannot tell whether it has arrived: check your inbox and your spam folder,
+        then open the link. After that, sign in.
+      </p>
+
+      <div id="formMessage" class="hidden"></div>
+
+      <div class="flex flex-col gap-3">
+        <button id="resendBtn" type="button" class="btn-secondary">Send the e-mail again</button>
+        <a id="loginLink" href="login.html" class="btn-primary text-center">Go to sign in</a>
+      </div>
+
+      <p class="text-xs text-sepia-700">Wrong address? <a id="signupLink" href="signup.html" class="font-bold text-dustyrose-600 hover:underline">Start again</a>.</p>
+    </div>
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="site-ui.js"></script>
+  <script defer src="auth-pages.js"></script>
+</body>
+</html>

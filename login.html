@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — Serene Mind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="font-lora text-sepia-900 min-h-screen" data-page="login">
+  <header id="siteHeader"></header>
+
+  <main class="max-w-md mx-auto px-4 py-10">
+    <div class="vintage-card vintage-border rounded-3xl p-8 space-y-6">
+      <div class="text-center space-y-1">
+        <h1 class="font-cinzel text-2xl font-bold">Welcome back</h1>
+        <p id="loginIntro" class="text-sm text-sepia-700 font-sans">Sign in to your Serene Mind account.</p>
+      </div>
+
+      <div id="formMessage" class="hidden"></div>
+
+      <form id="loginForm" class="space-y-4 font-sans text-sm" novalidate>
+        <div>
+          <label for="email" class="block font-bold mb-1">E-mail</label>
+          <input id="email" class="field" type="email" required autocomplete="email">
+        </div>
+        <div>
+          <label for="password" class="block font-bold mb-1">Password</label>
+          <input id="password" class="field" type="password" required autocomplete="current-password">
+        </div>
+        <button id="submitBtn" type="submit" class="btn-primary w-full">Sign in</button>
+      </form>
+
+      <p class="text-center text-sm font-sans text-sepia-700">
+        No account yet? <a id="signupLink" href="signup.html" class="font-bold text-dustyrose-600 hover:underline">Create one</a>
+      </p>
+    </div>
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="supabase-client.js"></script>
+  <script defer src="supabase-shop.js"></script>
+  <script defer src="site-ui.js"></script>
+  <script defer src="auth-pages.js"></script>
+</body>
+</html>
