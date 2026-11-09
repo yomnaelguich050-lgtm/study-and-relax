@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Serene Mind — Study &amp; Relax | Botanical &amp; Philosophy Sanctuary</title>
-  <meta name="description" content="Serene Mind (Study &amp; Relax): a calm vintage sanctuary for students. Study timer, breathing exercises, psychology and philosophy articles, and a wellness shop in Tunisia (tea, candles, journals).">
+  <title>Study Timer &amp; Relaxation for Students | Serene Mind</title>
+  <meta name="description" content="Serene Mind helps students study and relax: Pomodoro study timer, breathing exercises, psychology and philosophy articles, and a wellness shop in Tunisia.">
   <link rel="canonical" href="https://sweet-bavarois-a1ec05.netlify.app/">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#fdfbf7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph (partage sur les reseaux sociaux) -->
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Serene Mind">
-  <meta property="og:title" content="Serene Mind — Study &amp; Relax">
-  <meta property="og:description" content="A calm vintage sanctuary for students: study timer, relaxation, psychology and philosophy, and a wellness shop.">
+  <meta property="og:title" content="Study Timer &amp; Relaxation for Students | Serene Mind">
+  <meta property="og:description" content="A calm vintage sanctuary for students: Pomodoro study timer, breathing exercises, psychology and philosophy articles, and a wellness shop.">
   <meta property="og:url" content="https://sweet-bavarois-a1ec05.netlify.app/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta property="og:image:alt" content="Green fern leaves in soft sunlight">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Study Timer &amp; Relaxation for Students | Serene Mind">
+  <meta name="twitter:description" content="Pomodoro study timer, breathing exercises, psychology and philosophy articles, and a wellness shop.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"Serene Mind","alternateName":["Study & Relax","Study and Relax","Serene Mind Study & Relax"],"url":"https://sweet-bavarois-a1ec05.netlify.app/"}
+  {"@context":"https://schema.org","@type":"WebSite","name":"Serene Mind","alternateName":["Study & Relax","Study and Relax","Serene Mind Study & Relax"],"url":"https://sweet-bavarois-a1ec05.netlify.app/","description":"A calm vintage sanctuary for students: study timer, breathing exercises, psychology and philosophy articles, and a wellness shop in Tunisia.","inLanguage":["en","fr"]}
   </script>
   
   <!-- Fonts: Vintage Serif & Elegant Body -->
@@ -137,14 +149,14 @@
 </head>
 <body class="font-lora text-sepia-900 min-h-screen flex flex-col justify-between selection:bg-dustyrose-300">
 
-  <!-- Ambient Video Background Layers -->
-  <div class="video-bg-container">
+  <!-- Ambient Video Background Layers (decoratif) -->
+  <div class="video-bg-container" aria-hidden="true">
     <video id="bgVideo" class="video-bg" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1600&q=80">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-sunbeams-through-the-trees-in-a-forest-1188-large.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
   </div>
-  <div class="bg-overlay"></div>
+  <div class="bg-overlay" aria-hidden="true"></div>
 
   <!-- Announcement Bar: Trial Info -->
   <div class="bg-sepia-800 text-parchment text-xs md:text-sm py-2 px-4 text-center tracking-wide flex justify-center items-center gap-2 font-sans shadow-md">
@@ -159,9 +171,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Logo -->
-      <a href="#home" onclick="showPage('home')" class="flex items-center gap-3 group">
+      <a href="#home" onclick="showPage('home')" class="flex items-center gap-3 group" aria-label="Serene Mind - back to home">
         <div class="w-10 h-10 rounded-full bg-sage-300/40 border border-sage-600/30 flex items-center justify-center text-sage-800 group-hover:rotate-12 transition-transform">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
           </svg>
         </div>
@@ -171,14 +183,14 @@
         </div>
       </a>
 
-      <!-- Desktop Links -->
-      <nav class="hidden lg:flex items-center gap-6 font-sans text-sm font-medium text-sepia-700">
-        <button onclick="showPage('home')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-home">Home</button>
-        <button onclick="showPage('feeling')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-feeling">How I Feel</button>
-        <button onclick="showPage('whisper')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-whisper">Daily Whisper</button>
-        <button onclick="showPage('mind')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-mind">Mind & Philosophy</button>
-        <button onclick="showPage('timer')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-timer">Study Timer</button>
-        <button onclick="showPage('relaxation')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-relaxation">Relaxation</button>
+      <!-- Desktop Links (vrais liens <a> explorables par Google) -->
+      <nav class="hidden lg:flex items-center gap-6 font-sans text-sm font-medium text-sepia-700" aria-label="Main navigation">
+        <a href="#home" onclick="showPage('home')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-home">Home</a>
+        <a href="#feeling" onclick="showPage('feeling')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-feeling">How I Feel</a>
+        <a href="#whisper" onclick="showPage('whisper')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-whisper">Daily Whisper</a>
+        <a href="#mind" onclick="showPage('mind')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-mind">Mind & Philosophy</a>
+        <a href="#timer" onclick="showPage('timer')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-timer">Study Timer</a>
+        <a href="#relaxation" onclick="showPage('relaxation')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-relaxation">Relaxation</a>
       </nav>
 
       <!-- Cart Icon & Mobile Menu Button -->
@@ -191,15 +203,15 @@
 
         <!-- Cart Button -->
         <button onclick="toggleCartModal()" class="relative p-2.5 rounded-full bg-parchment-dark border border-sepia-700/20 text-sepia-800 hover:bg-sepia-100 transition-colors" title="Shopping Cart" aria-label="Open shopping basket">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
           </svg>
           <span id="cartBadge" class="absolute -top-1 -right-1 bg-dustyrose-600 text-white text-[10px] font-sans font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-parchment">0</span>
         </button>
 
         <!-- Mobile Menu Toggle -->
-        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-sepia-800 hover:text-sepia-900 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-sepia-800 hover:text-sepia-900 focus:outline-none" aria-label="Open navigation menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
@@ -208,12 +220,12 @@
 
     <!-- Mobile Dropdown Navigation -->
     <div id="mobileMenu" class="hidden lg:hidden border-t border-sepia-700/10 bg-parchment px-4 pt-3 pb-6 space-y-3 font-sans text-sm">
-      <button onclick="showPage('home'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Home</button>
-      <button onclick="showPage('feeling'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">How I Feel</button>
-      <button onclick="showPage('whisper'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Daily Whisper</button>
-      <button onclick="showPage('mind'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Mind & Philosophy</button>
-      <button onclick="showPage('timer'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Study Timer</button>
-      <button onclick="showPage('relaxation'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Relaxation</button>
+      <a href="#home" onclick="showPage('home'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Home</a>
+      <a href="#feeling" onclick="showPage('feeling'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">How I Feel</a>
+      <a href="#whisper" onclick="showPage('whisper'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Daily Whisper</a>
+      <a href="#mind" onclick="showPage('mind'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Mind & Philosophy</a>
+      <a href="#timer" onclick="showPage('timer'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Study Timer</a>
+      <a href="#relaxation" onclick="showPage('relaxation'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Relaxation</a>
       <button onclick="openSubscriptionModal(); toggleMobileMenu()" class="block w-full text-left py-2 font-bold text-dustyrose-600">Membership Offer (1st Month Free)</button>
       <a data-nav="account" href="login.html" class="block w-full text-left py-2 border-t border-sepia-700/10">Sign in</a>
       <a href="signup.html" class="block w-full text-left py-2 font-bold text-dustyrose-600">Create account</a>
@@ -234,10 +246,10 @@
             A Tranquil Haven for Students & Thinkers
           </span>
           <h1 class="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold text-sepia-900 leading-tight">
-            Find Peace in Study. <br><span class="italic font-lora font-normal text-dustyrose-600">Nurture Your Soul.</span>
+            Study Timer for Students. <br><span class="italic font-lora font-normal text-dustyrose-600">Find Peace, Nurture Your Soul.</span>
           </h1>
           <p class="text-sepia-800 text-base md:text-lg leading-relaxed font-lora">
-            Step into a serene, vintage realm designed to alleviate academic pressure, calm anxious thoughts, and illuminate your mind with timeless scientific & psychological wisdom.
+            Use a calm study timer for students, then step into a serene, vintage realm designed to alleviate academic pressure, calm anxious thoughts, and illuminate your mind with timeless scientific & psychological wisdom.
           </p>
           
           <div class="flex flex-wrap gap-4 pt-2 font-sans">
@@ -259,7 +271,7 @@
         <!-- Hero Botanical Image Card -->
         <div class="md:col-span-5 relative flex justify-center">
           <div class="relative w-full max-w-sm rounded-2xl overflow-hidden vintage-border shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80" alt="Botanical Ferns" class="w-full h-80 object-cover filter sepia-[20%] hover:scale-105 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80" alt="Green fern leaves in soft sunlight, a calm botanical scene for studying" width="800" height="320" fetchpriority="high" class="w-full h-80 object-cover filter sepia-[20%] hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-sepia-900/80 via-transparent to-transparent flex items-end p-6">
               <blockquote class="text-parchment text-sm italic font-lora">
                 "In the middle of difficulty lies opportunity." — Albert Einstein
@@ -278,37 +290,37 @@
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 font-sans">
           <button onclick="selectMoodQuick('stress')" class="p-5 vintage-card rounded-2xl text-left border-l-4 border-l-dustyrose-600 hover:scale-[1.02] transition-transform">
-            <span class="text-2xl block mb-2">🌿</span>
+            <span class="text-2xl block mb-2" aria-hidden="true">🌿</span>
             <h3 class="font-bold text-sepia-900 text-sm">Reduce Stress & Anxiety</h3>
             <p class="text-xs text-sepia-700 mt-1">Soothe your vagus nerve & calm cortisol spikes.</p>
           </button>
 
           <button onclick="selectMoodQuick('pressure')" class="p-5 vintage-card rounded-2xl text-left border-l-4 border-l-sage-600 hover:scale-[1.02] transition-transform">
-            <span class="text-2xl block mb-2">📚</span>
+            <span class="text-2xl block mb-2" aria-hidden="true">📚</span>
             <h3 class="font-bold text-sepia-900 text-sm">Academic Pressure</h3>
             <p class="text-xs text-sepia-700 mt-1">Break down daunting study goals into gentle steps.</p>
           </button>
 
           <button onclick="selectMoodQuick('love')" class="p-5 vintage-card rounded-2xl text-left border-l-4 border-l-softgold hover:scale-[1.02] transition-transform">
-            <span class="text-2xl block mb-2">🕊️</span>
+            <span class="text-2xl block mb-2" aria-hidden="true">🕊️</span>
             <h3 class="font-bold text-sepia-900 text-sm">Love & Connection</h3>
             <p class="text-xs text-sepia-700 mt-1">Understanding attachment, self-compassion & relationships.</p>
           </button>
 
           <button onclick="selectMoodQuick('fatigue')" class="p-5 vintage-card rounded-2xl text-left border-l-4 border-l-sepia-700 hover:scale-[1.02] transition-transform">
-            <span class="text-2xl block mb-2">☕</span>
+            <span class="text-2xl block mb-2" aria-hidden="true">☕</span>
             <h3 class="font-bold text-sepia-900 text-sm">Mindful Rest</h3>
             <p class="text-xs text-sepia-700 mt-1">Recharge mental energy without digital overstimulation.</p>
           </button>
 
           <button onclick="selectMoodQuick('focus')" class="p-5 vintage-card rounded-2xl text-left border-l-4 border-l-sage-800 hover:scale-[1.02] transition-transform">
-            <span class="text-2xl block mb-2">🎯</span>
+            <span class="text-2xl block mb-2" aria-hidden="true">🎯</span>
             <h3 class="font-bold text-sepia-900 text-sm">Deep Focus</h3>
             <p class="text-xs text-sepia-700 mt-1">Gentle Pomodoro study sessions with nature ambience.</p>
           </button>
 
           <button onclick="showPage('mind')" class="p-5 vintage-card rounded-2xl text-left border-l-4 border-l-dustyrose-800 hover:scale-[1.02] transition-transform">
-            <span class="text-2xl block mb-2">📖</span>
+            <span class="text-2xl block mb-2" aria-hidden="true">📖</span>
             <h3 class="font-bold text-sepia-900 text-sm">Philosophical Wisdom</h3>
             <p class="text-xs text-sepia-700 mt-1">Stoicism, Logotherapy, and psychological articles.</p>
           </button>
@@ -318,33 +330,33 @@
       <!-- Feature Highlights Grid -->
       <div class="grid md:grid-cols-3 gap-6">
         <div onclick="showPage('mind')" class="p-8 vintage-card rounded-3xl space-y-4 cursor-pointer hover:border-dustyrose-600/40">
-          <div class="w-12 h-12 rounded-2xl bg-dustyrose-100 flex items-center justify-center text-dustyrose-800 text-2xl">
+          <div class="w-12 h-12 rounded-2xl bg-dustyrose-100 flex items-center justify-center text-dustyrose-800 text-2xl" aria-hidden="true">
             🏛️
           </div>
           <h3 class="font-cinzel text-xl font-bold text-sepia-900">Psychology & Philosophy</h3>
           <p class="text-sm text-sepia-800 leading-relaxed font-lora">
             Discover research on stress resilience, Erich Fromm’s "The Art of Loving", Carl Jung’s shadow work, and Seneca's letters.
           </p>
-          <span class="inline-flex items-center text-xs font-sans font-bold text-dustyrose-600 group-hover:translate-x-1 transition-transform">
-            Explore Articles & Tips →
-          </span>
+          <a href="#mind" onclick="showPage('mind')" class="inline-flex items-center text-xs font-sans font-bold text-dustyrose-600 group-hover:translate-x-1 transition-transform">
+            Explore psychology and philosophy articles →
+          </a>
         </div>
 
         <div onclick="showPage('timer')" class="p-8 vintage-card rounded-3xl space-y-4 cursor-pointer hover:border-sage-600/40">
-          <div class="w-12 h-12 rounded-2xl bg-sage-100 flex items-center justify-center text-sage-800 text-2xl">
+          <div class="w-12 h-12 rounded-2xl bg-sage-100 flex items-center justify-center text-sage-800 text-2xl" aria-hidden="true">
             ⏳
           </div>
           <h3 class="font-cinzel text-xl font-bold text-sepia-900">Botanical Study Timer</h3>
           <p class="text-sm text-sepia-800 leading-relaxed font-lora">
             Structure your studies using the classic 25/5 technique paired with calming background visual landscapes.
           </p>
-          <span class="inline-flex items-center text-xs font-sans font-bold text-sage-800">
-            Start Study Session →
-          </span>
+          <a href="#timer" onclick="showPage('timer')" class="inline-flex items-center text-xs font-sans font-bold text-sage-800">
+            Start a study session with the timer →
+          </a>
         </div>
 
         <div onclick="openStoreModal()" class="p-8 vintage-card rounded-3xl space-y-4 cursor-pointer hover:border-softgold/60">
-          <div class="w-12 h-12 rounded-2xl bg-sage-100 flex items-center justify-center text-sage-800 text-2xl">
+          <div class="w-12 h-12 rounded-2xl bg-sage-100 flex items-center justify-center text-sage-800 text-2xl" aria-hidden="true">
               🛍️
           </div>
           
@@ -357,6 +369,7 @@
           <span class="inline-flex items-center text-xs font-sans font-bold text-sage-800" data-i18n="shop_link">
               Visit Wellness Shop →
           </span>
+        </div>
       </div>
 
     </section>
@@ -371,37 +384,37 @@
       <!-- Feeling Options -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 font-sans" id="feelingOptions">
         <button onclick="renderFeelingResult('pressure')" class="p-6 vintage-card rounded-2xl text-left border hover:border-dustyrose-600 transition-all group">
-          <div class="text-3xl mb-3">📚</div>
+          <div class="text-3xl mb-3" aria-hidden="true">📚</div>
           <h3 class="font-bold text-sepia-900 group-hover:text-dustyrose-600">Overwhelmed by Studies</h3>
           <p class="text-xs text-sepia-700 mt-1">Exams, deadlines, and high expectations are building up.</p>
         </button>
 
         <button onclick="renderFeelingResult('stress')" class="p-6 vintage-card rounded-2xl text-left border hover:border-dustyrose-600 transition-all group">
-          <div class="text-3xl mb-3">😰</div>
+          <div class="text-3xl mb-3" aria-hidden="true">😰</div>
           <h3 class="font-bold text-sepia-900 group-hover:text-dustyrose-600">Anxious & Restless</h3>
           <p class="text-xs text-sepia-700 mt-1">Physical tension, racing heartbeat, or overthinking.</p>
         </button>
 
         <button onclick="renderFeelingResult('love')" class="p-6 vintage-card rounded-2xl text-left border hover:border-dustyrose-600 transition-all group">
-          <div class="text-3xl mb-3">🖤</div>
+          <div class="text-3xl mb-3" aria-hidden="true">🖤</div>
           <h3 class="font-bold text-sepia-900 group-hover:text-dustyrose-600">Heartache & Relationship Stress</h3>
           <p class="text-xs text-sepia-700 mt-1">Seeking clarity, love, self-worth, or emotional closure.</p>
         </button>
 
         <button onclick="renderFeelingResult('fatigue')" class="p-6 vintage-card rounded-2xl text-left border hover:border-dustyrose-600 transition-all group">
-          <div class="text-3xl mb-3">😴</div>
+          <div class="text-3xl mb-3" aria-hidden="true">😴</div>
           <h3 class="font-bold text-sepia-900 group-hover:text-dustyrose-600">Mentally Exhausted</h3>
           <p class="text-xs text-sepia-700 mt-1">Burnout, lack of motivation, or cognitive fatigue.</p>
         </button>
 
         <button onclick="renderFeelingResult('focus')" class="p-6 vintage-card rounded-2xl text-left border hover:border-dustyrose-600 transition-all group">
-          <div class="text-3xl mb-3">🎯</div>
+          <div class="text-3xl mb-3" aria-hidden="true">🎯</div>
           <h3 class="font-bold text-sepia-900 group-hover:text-dustyrose-600">Unfocused & Distracted</h3>
           <p class="text-xs text-sepia-700 mt-1">Difficulty staying present or resisting digital temptations.</p>
         </button>
 
         <button onclick="renderFeelingResult('pause')" class="p-6 vintage-card rounded-2xl text-left border hover:border-dustyrose-600 transition-all group">
-          <div class="text-3xl mb-3">☕</div>
+          <div class="text-3xl mb-3" aria-hidden="true">☕</div>
           <h3 class="font-bold text-sepia-900 group-hover:text-dustyrose-600">Seeking Quiet Reflection</h3>
           <p class="text-xs text-sepia-700 mt-1">You simply want a peaceful, mindful break right now.</p>
         </button>
@@ -676,6 +689,12 @@
   <footer class="bg-parchment/90 border-t border-sepia-700/15 py-8 px-4 text-center text-xs font-sans text-sepia-700 space-y-3 z-10 relative">
     <div class="max-w-4xl mx-auto space-y-2">
       <p class="font-semibold text-sepia-900">Serene Study & Botanical Mind — Vintage Wellbeing Edition</p>
+      <nav aria-label="Footer navigation" class="flex flex-wrap justify-center gap-4">
+        <a href="#timer" onclick="showPage('timer')" class="hover:underline">Study timer for students</a>
+        <a href="#relaxation" onclick="showPage('relaxation')" class="hover:underline">Relaxation exercises</a>
+        <a href="#mind" onclick="showPage('mind')" class="hover:underline">Psychology and philosophy articles</a>
+        <a href="signup.html" class="hover:underline">Create an account</a>
+      </nav>
       <p class="max-w-2xl mx-auto text-[11px] leading-relaxed text-sepia-700">
         Disclaimer: Serene Mind is an educational and wellness resource designed to foster study-life balance. It is not a substitute for clinical psychiatric care or medical psychotherapy.
       </p>
@@ -692,7 +711,7 @@
       <div class="space-y-6 overflow-y-auto pr-1">
         <div class="flex items-center justify-between border-b border-sepia-700/15 pb-4">
           <div class="flex items-center gap-2">
-            <span class="text-xl">🛍️</span>
+            <span class="text-xl" aria-hidden="true">🛍️</span>
             <h3 id="cartTitle" class="font-cinzel text-xl font-bold text-sepia-900">Serene Wellness Shop</h3>
           </div>
           <select id="language-select" onchange="changeLanguage(this.value)" aria-label="Language" class="bg-[#fdfbf7] border border-sepia-700/30 rounded px-2 py-1 text-xs text-sepia-900 cursor-pointer">
@@ -786,7 +805,7 @@
     <div onclick="closeSubscriptionModal()" class="absolute inset-0 bg-sepia-900/60 backdrop-blur-sm"></div>
     <div class="relative bg-parchment rounded-3xl max-w-lg w-full p-8 vintage-card vintage-border shadow-2xl z-10 space-y-6 font-sans">
       <div class="text-center space-y-2">
-        <span class="text-3xl">🌿</span>
+        <span class="text-3xl" aria-hidden="true">🌿</span>
         <h3 id="subTitle" class="font-cinzel text-2xl font-bold text-sepia-900">1st Month Free Membership</h3>
         <p class="text-xs text-sepia-700">Unlock full access to psychology articles, audio ambient backgrounds, and focus tools.</p>
       </div>
@@ -829,6 +848,14 @@
       const activeBtn = document.getElementById('nav-' + pageId);
       if (activeBtn) activeBtn.classList.add('active');
     }
+
+    // SEO / partage : permet d'ouvrir directement une section avec une adresse comme /#timer
+    function showPageFromHash() {
+      const id = (window.location.hash || '').replace('#', '');
+      if (id && document.getElementById('page-' + id)) showPage(id);
+    }
+    window.addEventListener('hashchange', showPageFromHash);
+    window.addEventListener('DOMContentLoaded', showPageFromHash);
 
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
