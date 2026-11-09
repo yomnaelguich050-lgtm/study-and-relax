@@ -145,6 +145,27 @@
       border-bottom: 2px solid #b87368;
       font-weight: 700;
     }
+
+    /* Vintage timeline (About / Journey) */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 7px; top: 6px; bottom: 6px;
+      border-left: 2px dashed rgba(104, 83, 56, 0.45);
+    }
+    .timeline-item { position: relative; }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -2rem; top: 6px;
+      width: 16px; height: 16px; border-radius: 9999px;
+      background: #fdfbf7; border: 3px solid #b87368;
+    }
+    .timeline-item.sage::before { border-color: #697d65; }
+    .timeline-item.gold::before { border-color: #d4af37; }
+
+    /* Contact buttons */
+    .contact-btn { transition: transform .2s ease, box-shadow .2s ease; }
+    .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(45,34,28,.18); }
   </style>
 </head>
 <body class="font-lora text-sepia-900 min-h-screen flex flex-col justify-between selection:bg-dustyrose-300">
@@ -191,6 +212,8 @@
         <a href="#mind" onclick="showPage('mind')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-mind">Mind & Philosophy</a>
         <a href="#timer" onclick="showPage('timer')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-timer">Study Timer</a>
         <a href="#relaxation" onclick="showPage('relaxation')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-relaxation">Relaxation</a>
+        <a href="#about" onclick="showPage('about')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-about">About Me</a>
+        <a href="#contact" onclick="showPage('contact')" class="nav-btn py-2 hover:text-sepia-900 transition-colors" id="nav-contact">Contact</a>
       </nav>
 
       <!-- Cart Icon & Mobile Menu Button -->
@@ -226,6 +249,8 @@
       <a href="#mind" onclick="showPage('mind'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Mind & Philosophy</a>
       <a href="#timer" onclick="showPage('timer'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Study Timer</a>
       <a href="#relaxation" onclick="showPage('relaxation'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Relaxation</a>
+      <a href="#about" onclick="showPage('about'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">About Me</a>
+      <a href="#contact" onclick="showPage('contact'); toggleMobileMenu()" class="block w-full text-left py-2 border-b border-sepia-700/10">Contact</a>
       <button onclick="openSubscriptionModal(); toggleMobileMenu()" class="block w-full text-left py-2 font-bold text-dustyrose-600">Membership Offer (1st Month Free)</button>
       <a data-nav="account" href="login.html" class="block w-full text-left py-2 border-t border-sepia-700/10">Sign in</a>
       <a href="signup.html" class="block w-full text-left py-2 font-bold text-dustyrose-600">Create account</a>
@@ -683,6 +708,141 @@
       </div>
     </section>
 
+    <!-- ================= 7. ABOUT ME SECTION ================= -->
+    <section id="page-about" class="page-section space-y-12">
+
+      <div class="grid md:grid-cols-12 gap-8 items-center bg-parchment/85 p-8 md:p-12 rounded-3xl border border-sepia-700/15 shadow-xl backdrop-blur-md">
+        <div class="md:col-span-4 flex justify-center">
+          <!-- Portrait: replace the src with your own photo (e.g. images/me.jpg) -->
+          <div class="w-52 h-64 vintage-border rounded-2xl overflow-hidden bg-sepia-100 flex items-center justify-center shadow-xl">
+            <img id="aboutPhoto" src="me.jpg" alt="Portrait of the author of Serene Mind" class="w-full h-full object-cover filter sepia-[25%]" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div style="display:none" class="w-full h-full flex-col items-center justify-center text-center p-4 text-sepia-700 font-sans text-xs gap-2">
+              <span class="text-4xl" aria-hidden="true">🌿</span>
+              <span>Add your photo as <strong>me.jpg</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-8 space-y-5">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-dustyrose-100 text-dustyrose-800 text-xs font-sans font-bold uppercase tracking-widest border border-dustyrose-300/50">
+            The Story Behind Serene Mind
+          </span>
+          <h2 class="font-cinzel text-3xl md:text-4xl font-bold text-sepia-900 leading-tight">
+            Hello, I'm <span class="italic font-lora font-normal text-dustyrose-600">Yomna El Guich</span>
+          </h2>
+          <p class="text-sepia-800 leading-relaxed">
+            I am a student in business computing (management information systems), a path that has little to do with psychology on paper. And yet, the questions that keep me awake at night are always the same: how does the mind work, why do we suffer, and how can we help each other grow?
+          </p>
+          <p class="text-sepia-800 leading-relaxed">
+            Serene Mind brings together my university studies, my love of reading, and my curiosity about psychology and coaching. I am not a psychology professional or a certified coach, and I do not have formal training or professional experience in these fields. I simply enjoy learning about them through reading and personal exploration, and I want to share that curiosity in a thoughtful, honest way.
+          </p>
+          <blockquote class="border-l-4 border-dustyrose-600 pl-4 italic text-sepia-700">
+            "A different path is not a detour. It is a point of view nobody else has."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Journey timeline -->
+      <div class="space-y-6">
+        <div class="text-center max-w-2xl mx-auto">
+          <h3 class="font-cinzel text-2xl md:text-3xl font-bold text-sepia-900">My Journey</h3>
+          <p class="text-sepia-700 text-sm mt-1">Three parts of my story: what I study, what I love, and the subjects I enjoy exploring.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto vintage-card rounded-3xl p-8 md:p-10">
+          <div class="timeline space-y-8">
+
+            <div class="timeline-item">
+              <span class="text-xs font-sans font-bold uppercase tracking-widest text-dustyrose-600">University Studies · [Years]</span>
+              <h4 class="font-cinzel text-lg font-bold text-sepia-900 mt-1">Business Computing (Management Information Systems)</h4>
+              <p class="text-sm text-sepia-800 leading-relaxed mt-1">
+                My degree taught me rigor, structure and problem-solving, and how to design tools that truly answer people's needs. That is exactly the mindset I use to build Serene Mind.
+              </p>
+            </div>
+
+            <div class="timeline-item sage">
+              <span class="text-xs font-sans font-bold uppercase tracking-widest text-sage-800">Personal Interest · Ongoing</span>
+              <h4 class="font-cinzel text-lg font-bold text-sepia-900 mt-1">Exploring Psychology & Coaching</h4>
+              <p class="text-sm text-sepia-800 leading-relaxed mt-1">
+                I am curious about how people think, feel, learn and grow. I explore these subjects through reading and independent learning, without presenting myself as a trained professional.
+              </p>
+            </div>
+
+            <div class="timeline-item gold">
+              <span class="text-xs font-sans font-bold uppercase tracking-widest text-sepia-700">Passions · Today</span>
+              <h4 class="font-cinzel text-lg font-bold text-sepia-900 mt-1">Serene Mind</h4>
+              <p class="text-sm text-sepia-800 leading-relaxed mt-1">
+                The meeting point of my studies, my curiosity and my love of reading: a calm space created to encourage reflection and help students approach studying with less pressure.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Integration: studies + trainings + passions -->
+      <div class="space-y-6">
+        <div class="text-center max-w-2xl mx-auto">
+          <h3 class="font-cinzel text-2xl md:text-3xl font-bold text-sepia-900">Where Everything Meets</h3>
+          <p class="text-sepia-700 text-sm mt-1">What each part of my life brings to this project.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-8 vintage-card rounded-3xl space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-dustyrose-100 flex items-center justify-center text-2xl" aria-hidden="true">🎓</div>
+            <h4 class="font-cinzel text-xl font-bold text-sepia-900">My Studies</h4>
+            <p class="text-sm text-sepia-800 leading-relaxed">Method, discipline and a different angle on how to learn and organize your work.</p>
+          </div>
+          <div class="p-8 vintage-card rounded-3xl space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-sage-100 flex items-center justify-center text-2xl" aria-hidden="true">🧠</div>
+            <h4 class="font-cinzel text-xl font-bold text-sepia-900">My Interests</h4>
+            <p class="text-sm text-sepia-800 leading-relaxed">An ongoing curiosity about psychology, coaching, emotions and personal growth, explored through reading and independent learning.</p>
+          </div>
+          <div class="p-8 vintage-card rounded-3xl space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-parchment-dark flex items-center justify-center text-2xl" aria-hidden="true">🌿</div>
+            <h4 class="font-cinzel text-xl font-bold text-sepia-900">My Passions</h4>
+            <p class="text-sm text-sepia-800 leading-relaxed">Reading is one of my favourite ways to discover new perspectives. I especially enjoy books and ideas that invite me to think about human nature, psychology, philosophy and personal growth.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button onclick="showPage('contact')" class="bg-dustyrose-600 hover:bg-dustyrose-800 text-white font-sans font-semibold px-8 py-3.5 rounded-full shadow-lg transition-all">
+          Let's talk →
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= 8. CONTACT SECTION ================= -->
+    <section id="page-contact" class="page-section space-y-8">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="font-cinzel text-3xl font-bold text-sepia-900">Get in Touch</h2>
+        <p class="text-sepia-700 text-sm">A question, a doubt, an idea, or just a need to talk? Write to me on the app you prefer.</p>
+      </div>
+
+      <div class="max-w-xl mx-auto vintage-card vintage-border rounded-3xl p-8 md:p-10 space-y-6 text-center">
+        <span class="text-4xl" aria-hidden="true">✉️</span>
+        <p class="text-sepia-800 leading-relaxed">
+          I read every message myself. Choose Instagram or WhatsApp and I will answer as soon as I can.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 font-sans">
+          <a href="https://www.instagram.com/sereneminds8" target="_blank" rel="noopener noreferrer"
+             class="contact-btn flex-1 flex items-center justify-center gap-2 bg-dustyrose-600 hover:bg-dustyrose-800 text-white font-bold py-3.5 px-6 rounded-full">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            Instagram
+          </a>
+          <a href="https://wa.me/21629882775?text=Hello%2C%20I%20found%20you%20through%20Serene%20Mind" target="_blank" rel="noopener noreferrer"
+             class="contact-btn flex-1 flex items-center justify-center gap-2 bg-sage-600 hover:bg-sage-800 text-white font-bold py-3.5 px-6 rounded-full">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4L3 21z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+
+        <p class="text-xs text-sepia-700 font-sans leading-relaxed pt-2 border-t border-sepia-700/10">
+          Serene Mind is an educational space. For a crisis or a medical situation, please contact a qualified professional or emergency services.
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -693,6 +853,8 @@
         <a href="#timer" onclick="showPage('timer')" class="hover:underline">Study timer for students</a>
         <a href="#relaxation" onclick="showPage('relaxation')" class="hover:underline">Relaxation exercises</a>
         <a href="#mind" onclick="showPage('mind')" class="hover:underline">Psychology and philosophy articles</a>
+        <a href="#about" onclick="showPage('about')" class="hover:underline">About me</a>
+        <a href="#contact" onclick="showPage('contact')" class="hover:underline">Contact</a>
         <a href="signup.html" class="hover:underline">Create an account</a>
       </nav>
       <p class="max-w-2xl mx-auto text-[11px] leading-relaxed text-sepia-700">
